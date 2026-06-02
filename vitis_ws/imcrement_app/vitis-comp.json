@@ -1,0 +1,18 @@
+{
+  "name": "imcrement_app",
+  "type": "HOST",
+  "platform": "D:\\Yash\\KGP\\hardware_project\\vitis_ws\\zedboard_platform\\export\\zedboard_platform\\zedboard_platform.xpfm",
+  "domain": "standalone_ps7_cortexa9_0",
+  "cpuInstance": "ps7_cortexa9_0",
+  "cpuType": "cortex-a9",
+  "os": "standalone",
+  "configuration": {
+    "componentType": "HOST",
+    "hostToolchainConfigurations": []
+  },
+  "domainRealName": "standalone_ps7_cortexa9_0",
+  "applicationFlow": "EMBEDDED",
+  "previousBuildStatusMap": {
+    "hw": "SUCCESS"
+  }
+}
