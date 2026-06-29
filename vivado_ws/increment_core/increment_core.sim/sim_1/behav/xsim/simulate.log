@@ -1,0 +1,86 @@
+Time resolution is 1 ps
+Initial BRAM State (first 5 rows and columns):
+00 01 02 03 04
+1c 1d 1e 1f 20
+38 39 3a 3b 3c
+54 55 56 57 58
+70 71 72 73 74
+
+--- Starting Test Case 1 (Top-Left, Pass 1) ---
+Time: 130000 | DUT Vector: 000000000001001c
+GotMatch at element           0 - Expected: 00, Got: 00
+GotMatch at element           1 - Expected: 00, Got: 00
+GotMatch at element           2 - Expected: 00, Got: 00
+GotMatch at element           3 - Expected: 00, Got: 00
+GotMatch at element           4 - Expected: 00, Got: 00
+GotMatch at element           5 - Expected: 01, Got: 01
+GotMatch at element           6 - Expected: 00, Got: 00
+GotMatch at element           7 - Expected: 1c, Got: 1c
+[PASS] Vector validated successfully.
+Time: 210000 | DUT Vector: 0000000001021c1d
+GotMatch at element           0 - Expected: 00, Got: 00
+GotMatch at element           1 - Expected: 00, Got: 00
+GotMatch at element           2 - Expected: 00, Got: 00
+GotMatch at element           3 - Expected: 00, Got: 00
+GotMatch at element           4 - Expected: 01, Got: 01
+GotMatch at element           5 - Expected: 02, Got: 02
+GotMatch at element           6 - Expected: 1c, Got: 1c
+GotMatch at element           7 - Expected: 1d, Got: 1d
+[PASS] Vector validated successfully.
+Time: 290000 | DUT Vector: 0000000102031d1e
+GotMatch at element           0 - Expected: 00, Got: 00
+GotMatch at element           1 - Expected: 00, Got: 00
+GotMatch at element           2 - Expected: 00, Got: 00
+GotMatch at element           3 - Expected: 01, Got: 01
+GotMatch at element           4 - Expected: 02, Got: 02
+GotMatch at element           5 - Expected: 03, Got: 03
+GotMatch at element           6 - Expected: 1d, Got: 1d
+GotMatch at element           7 - Expected: 1e, Got: 1e
+[PASS] Vector validated successfully.
+
+--- Starting Test Case 2 (Top-Left, Pass 2 Remainder) ---
+Time: 350000 | DUT Vector: 1d00000000000000
+GotMatch at element           0 - Expected: 1d, Got: 1d
+GotMatch at element           1 - Expected: 00, Got: 00
+GotMatch at element           2 - Expected: 00, Got: 00
+GotMatch at element           3 - Expected: 00, Got: 00
+GotMatch at element           4 - Expected: 00, Got: 00
+GotMatch at element           5 - Expected: 00, Got: 00
+GotMatch at element           6 - Expected: 00, Got: 00
+GotMatch at element           7 - Expected: 00, Got: 00
+[PASS] Vector validated successfully.
+Time: 360000 | DUT Vector: 1e00000000000000
+GotMatch at element           0 - Expected: 1e, Got: 1e
+GotMatch at element           1 - Expected: 00, Got: 00
+GotMatch at element           2 - Expected: 00, Got: 00
+GotMatch at element           3 - Expected: 00, Got: 00
+GotMatch at element           4 - Expected: 00, Got: 00
+GotMatch at element           5 - Expected: 00, Got: 00
+GotMatch at element           6 - Expected: 00, Got: 00
+GotMatch at element           7 - Expected: 00, Got: 00
+[PASS] Vector validated successfully.
+Time: 370000 | DUT Vector: 1f00000000000000
+GotMatch at element           0 - Expected: 1f, Got: 1f
+GotMatch at element           1 - Expected: 00, Got: 00
+GotMatch at element           2 - Expected: 00, Got: 00
+GotMatch at element           3 - Expected: 00, Got: 00
+GotMatch at element           4 - Expected: 00, Got: 00
+GotMatch at element           5 - Expected: 00, Got: 00
+GotMatch at element           6 - Expected: 00, Got: 00
+GotMatch at element           7 - Expected: 00, Got: 00
+[PASS] Vector validated successfully.
+
+--- Starting Test Case 3 (Center Image, No Padding) ---
+Time: 500000 | DUT Vector: 747576909192acad
+GotMatch at element           0 - Expected: 74, Got: 74
+GotMatch at element           1 - Expected: 75, Got: 75
+GotMatch at element           2 - Expected: 76, Got: 76
+GotMatch at element           3 - Expected: 90, Got: 90
+GotMatch at element           4 - Expected: 91, Got: 91
+GotMatch at element           5 - Expected: 92, Got: 92
+GotMatch at element           6 - Expected: ac, Got: ac
+GotMatch at element           7 - Expected: ad, Got: ad
+[PASS] Vector validated successfully.
+
+--- All Tests Complete ---
+$finish called at time : 525 ns : File "D:/Yash/KGP/hardware_project/vivado_ws/tb/tb_im2col.sv" Line 173

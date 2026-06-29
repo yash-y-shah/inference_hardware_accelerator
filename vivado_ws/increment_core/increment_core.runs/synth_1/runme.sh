@@ -41,4 +41,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log system_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_wrapper.tcl
+EAStep vivado -log systolic_array_core.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source systolic_array_core.tcl

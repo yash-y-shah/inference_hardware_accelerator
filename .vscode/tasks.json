@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile Verilog (Icarus Verilog)",
+            "type": "shell",
+            "command": "iverilog -sverilog -o out.vvp -s ${fileBasenameNoExtension} -I ${workspaceFolder}/vivado_ws/rtl ${file}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$iverilog"
+            ],
+            "detail": "Compiles Verilog files using Icarus Verilog"
+        },
+        {
+            "label": "Simulate Verilog (Icarus Verilog)",
+            "type": "shell",
+            "command": "vvp out.vvp",
+            "group": "test",
+            "problemMatcher": [],
+            "detail": "Simulates the compiled Verilog code using vvp"
+        },
+        {
+            "label": "Clean Simulation Files",
+            "type": "shell",
+            "command": "rm -f out.vvp vcd.vcd", // Adjust based on your output files
+            "group": "clean",
+            "problemMatcher": [],
+            "detail": "Removes compiled simulation output and VCD files"
+        },
+        {
+            "label": "View Waveforms (GTKWave)",
+            "type": "shell",
+            "command": "gtkwave vcd.vcd", // Assuming your testbench generates 'vcd.vcd'
+            "group": "other",
+            "problemMatcher": [],
+            "detail": "Opens the generated VCD file in GTKWave"
+        }
+    ]
+}
+        

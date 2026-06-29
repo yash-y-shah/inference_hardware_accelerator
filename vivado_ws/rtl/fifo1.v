@@ -1,8 +1,8 @@
 // BRAM FIFO
 
 module fifo1 #(
-  parameter IP_WIDTH = 32;
-  parameter DEPTH = 16;
+  parameter IP_WIDTH = 32,
+  parameter DEPTH = 16
 )(
   input clk,
   input rst,

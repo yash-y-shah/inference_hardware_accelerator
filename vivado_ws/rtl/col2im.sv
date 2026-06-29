@@ -1,8 +1,8 @@
 module col2im #(
-  IP_WIDTH = 8;
-	WT_WIDTH = 8;
-	PS_WIDTH = 32;
-  GRID_DIM = 8;
+  IP_WIDTH = 8,
+	WT_WIDTH = 8,
+	PS_WIDTH = 32,
+  GRID_DIM = 8
 )(
   input clk,
   input rst,
