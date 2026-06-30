@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1782742030" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/system_wrapper.dcp">
-  <File Type="PA-TCL" Name="systolic_array_core.tcl"/>
-  <File Type="REPORTS-TCL" Name="systolic_array_core_reports.tcl"/>
-  <File Type="RDS-RDS" Name="systolic_array_core.vds"/>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1782815986" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/system_wrapper.dcp">
+  <File Type="PA-TCL" Name="skewer.tcl"/>
+  <File Type="REPORTS-TCL" Name="skewer_reports.tcl"/>
+  <File Type="RDS-RDS" Name="skewer.vds"/>
   <File Type="RDS-UTIL" Name="systolic_array_core_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="systolic_array_core_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="systolic_array_core.dcp"/>
+  <File Type="RDS-DCP" Name="skewer.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../rtl/processing_element_ws.v">
+    <File Path="$PPRDIR/../rtl/shiftreg.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../rtl/systolic_array_core.sv">
+    <File Path="$PPRDIR/../rtl/skewer.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -73,9 +73,25 @@
     <File Path="$PPRDIR/../ip_repo/component.xml">
       <FileInfo SFType="IPXACT"/>
     </File>
+    <File Path="$PPRDIR/../rtl/systolic_array_core.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../rtl/processing_element_ws.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="systolic_array_core"/>
+      <Option Name="TopModule" Val="skewer"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">

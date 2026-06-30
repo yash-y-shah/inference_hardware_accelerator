@@ -1,86 +1,90 @@
 Time resolution is 1 ps
-Initial BRAM State (first 5 rows and columns):
-00 01 02 03 04
-1c 1d 1e 1f 20
-38 39 3a 3b 3c
-54 55 56 57 58
-70 71 72 73 74
 
---- Starting Test Case 1 (Top-Left, Pass 1) ---
-Time: 130000 | DUT Vector: 000000000001001c
-GotMatch at element           0 - Expected: 00, Got: 00
-GotMatch at element           1 - Expected: 00, Got: 00
-GotMatch at element           2 - Expected: 00, Got: 00
-GotMatch at element           3 - Expected: 00, Got: 00
-GotMatch at element           4 - Expected: 00, Got: 00
-GotMatch at element           5 - Expected: 01, Got: 01
-GotMatch at element           6 - Expected: 00, Got: 00
-GotMatch at element           7 - Expected: 1c, Got: 1c
-[PASS] Vector validated successfully.
-Time: 210000 | DUT Vector: 0000000001021c1d
-GotMatch at element           0 - Expected: 00, Got: 00
-GotMatch at element           1 - Expected: 00, Got: 00
-GotMatch at element           2 - Expected: 00, Got: 00
-GotMatch at element           3 - Expected: 00, Got: 00
-GotMatch at element           4 - Expected: 01, Got: 01
-GotMatch at element           5 - Expected: 02, Got: 02
-GotMatch at element           6 - Expected: 1c, Got: 1c
-GotMatch at element           7 - Expected: 1d, Got: 1d
-[PASS] Vector validated successfully.
-Time: 290000 | DUT Vector: 0000000102031d1e
-GotMatch at element           0 - Expected: 00, Got: 00
-GotMatch at element           1 - Expected: 00, Got: 00
-GotMatch at element           2 - Expected: 00, Got: 00
-GotMatch at element           3 - Expected: 01, Got: 01
-GotMatch at element           4 - Expected: 02, Got: 02
-GotMatch at element           5 - Expected: 03, Got: 03
-GotMatch at element           6 - Expected: 1d, Got: 1d
-GotMatch at element           7 - Expected: 1e, Got: 1e
-[PASS] Vector validated successfully.
+=== TEST 1: Single active row, all weights = 1 ===
+t=90000 VALID=1 | 0 0 0 0 0 0 0 0
+t=100000 VALID=1 | 0 0 0 0 0 0 0 0
+t=110000 VALID=1 | 0 0 0 0 0 0 0 0
+t=120000 VALID=1 | 0 0 0 0 0 0 0 0
+t=130000 VALID=1 | 0 0 0 0 0 0 0 0
+t=140000 VALID=1 | 0 0 0 0 0 0 0 0
+t=150000 VALID=1 | 0 0 0 0 0 0 0 0
+t=160000 VALID=1 | 0 0 0 0 0 0 0 0
+t=170000 VALID=1 | 0 0 0 0 0 0 0 1
+t=180000 VALID=1 | 0 0 0 0 0 0 1 1
+t=190000 VALID=1 | 0 0 0 0 0 1 1 1
+t=200000 VALID=1 | 0 0 0 0 1 1 1 1
+t=210000 VALID=1 | 0 0 0 1 1 1 1 1
+t=220000 VALID=1 | 0 0 1 1 1 1 1 1
+t=230000 VALID=1 | 0 1 1 1 1 1 1 1
+t=240000 VALID=1 | 1 1 1 1 1 1 1 1
+[TEST1] PASS: all 8 columns correct
+t=250000 VALID=1 | 1 1 1 1 1 1 1 1
+t=260000 VALID=1 | 1 1 1 1 1 1 1 1
+t=270000 VALID=1 | 1 1 1 1 1 1 1 1
+t=280000 VALID=1 | 1 1 1 1 1 1 1 1
+t=290000 VALID=1 | 1 1 1 1 1 1 1 1
+t=300000 VALID=1 | 1 1 1 1 1 1 1 1
+t=310000 VALID=1 | 1 1 1 1 1 1 1 1
+t=320000 VALID=1 | 1 1 1 1 1 1 1 1
+t=330000 VALID=1 | 1 1 1 1 1 1 1 1
+t=340000 VALID=1 | 1 1 1 1 1 1 1 1
+t=350000 VALID=1 | 1 1 1 1 1 1 1 1
+t=360000 VALID=1 | 1 1 1 1 1 1 1 1
+t=370000 VALID=1 | 1 1 1 1 1 1 1 1
+t=380000 VALID=1 | 1 1 1 1 1 1 1 1
+t=390000 VALID=1 | 1 1 1 1 1 1 1 1
+t=400000 VALID=1 | 1 1 1 1 1 1 1 1
+t=410000 VALID=1 | 1 1 1 1 1 1 1 1
+t=420000 VALID=1 | 1 1 1 1 1 1 1 1
+t=430000 VALID=1 | 1 1 1 1 1 1 1 1
+t=440000 VALID=1 | 1 1 1 1 1 1 1 1
+t=450000 VALID=1 | 1 1 1 1 1 1 1 1
+t=460000 VALID=1 | 1 1 1 1 1 1 1 1
+t=470000 VALID=1 | 1 1 1 1 1 1 1 1
+t=480000 VALID=1 | 1 1 1 1 1 1 1 1
+t=490000 VALID=1 | 1 1 1 1 1 1 1 1
+t=500000 VALID=1 | 1 1 1 1 1 1 1 1
 
---- Starting Test Case 2 (Top-Left, Pass 2 Remainder) ---
-Time: 350000 | DUT Vector: 1d00000000000000
-GotMatch at element           0 - Expected: 1d, Got: 1d
-GotMatch at element           1 - Expected: 00, Got: 00
-GotMatch at element           2 - Expected: 00, Got: 00
-GotMatch at element           3 - Expected: 00, Got: 00
-GotMatch at element           4 - Expected: 00, Got: 00
-GotMatch at element           5 - Expected: 00, Got: 00
-GotMatch at element           6 - Expected: 00, Got: 00
-GotMatch at element           7 - Expected: 00, Got: 00
-[PASS] Vector validated successfully.
-Time: 360000 | DUT Vector: 1e00000000000000
-GotMatch at element           0 - Expected: 1e, Got: 1e
-GotMatch at element           1 - Expected: 00, Got: 00
-GotMatch at element           2 - Expected: 00, Got: 00
-GotMatch at element           3 - Expected: 00, Got: 00
-GotMatch at element           4 - Expected: 00, Got: 00
-GotMatch at element           5 - Expected: 00, Got: 00
-GotMatch at element           6 - Expected: 00, Got: 00
-GotMatch at element           7 - Expected: 00, Got: 00
-[PASS] Vector validated successfully.
-Time: 370000 | DUT Vector: 1f00000000000000
-GotMatch at element           0 - Expected: 1f, Got: 1f
-GotMatch at element           1 - Expected: 00, Got: 00
-GotMatch at element           2 - Expected: 00, Got: 00
-GotMatch at element           3 - Expected: 00, Got: 00
-GotMatch at element           4 - Expected: 00, Got: 00
-GotMatch at element           5 - Expected: 00, Got: 00
-GotMatch at element           6 - Expected: 00, Got: 00
-GotMatch at element           7 - Expected: 00, Got: 00
-[PASS] Vector validated successfully.
-
---- Starting Test Case 3 (Center Image, No Padding) ---
-Time: 500000 | DUT Vector: 747576909192acad
-GotMatch at element           0 - Expected: 74, Got: 74
-GotMatch at element           1 - Expected: 75, Got: 75
-GotMatch at element           2 - Expected: 76, Got: 76
-GotMatch at element           3 - Expected: 90, Got: 90
-GotMatch at element           4 - Expected: 91, Got: 91
-GotMatch at element           5 - Expected: 92, Got: 92
-GotMatch at element           6 - Expected: ac, Got: ac
-GotMatch at element           7 - Expected: ad, Got: ad
-[PASS] Vector validated successfully.
-
---- All Tests Complete ---
-$finish called at time : 525 ns : File "D:/Yash/KGP/hardware_project/vivado_ws/tb/tb_im2col.sv" Line 173
+=== TEST 2: All rows active, all weights = 1, expected = 8 ===
+t=600000 VALID=1 | 0 0 0 0 0 0 0 0
+t=610000 VALID=1 | 0 0 0 0 0 0 0 1
+t=620000 VALID=1 | 0 0 0 0 0 0 1 2
+t=630000 VALID=1 | 0 0 0 0 0 1 2 3
+t=640000 VALID=1 | 0 0 0 0 1 2 3 4
+t=650000 VALID=1 | 0 0 0 1 2 3 4 5
+t=660000 VALID=1 | 0 0 1 2 3 4 5 6
+t=670000 VALID=1 | 0 1 2 3 4 5 6 7
+t=680000 VALID=1 | 1 2 3 4 5 6 7 8
+t=690000 VALID=1 | 2 3 4 5 6 7 8 8
+t=700000 VALID=1 | 3 4 5 6 7 8 8 8
+t=710000 VALID=1 | 4 5 6 7 8 8 8 8
+t=720000 VALID=1 | 5 6 7 8 8 8 8 8
+t=730000 VALID=1 | 6 7 8 8 8 8 8 8
+t=740000 VALID=1 | 7 8 8 8 8 8 8 8
+t=750000 VALID=1 | 8 8 8 8 8 8 8 8
+[TEST2] PASS: all 8 columns correct
+t=760000 VALID=1 | 8 8 8 8 8 8 8 8
+t=770000 VALID=1 | 8 8 8 8 8 8 8 8
+t=780000 VALID=1 | 8 8 8 8 8 8 8 8
+t=790000 VALID=1 | 8 8 8 8 8 8 8 8
+t=800000 VALID=1 | 8 8 8 8 8 8 8 8
+t=810000 VALID=1 | 8 8 8 8 8 8 8 8
+t=820000 VALID=1 | 8 8 8 8 8 8 8 8
+t=830000 VALID=1 | 8 8 8 8 8 8 8 8
+t=840000 VALID=1 | 8 8 8 8 8 8 8 8
+t=850000 VALID=1 | 8 8 8 8 8 8 8 8
+t=860000 VALID=1 | 8 8 8 8 8 8 8 8
+t=870000 VALID=1 | 8 8 8 8 8 8 8 8
+t=880000 VALID=1 | 8 8 8 8 8 8 8 8
+t=890000 VALID=1 | 8 8 8 8 8 8 8 8
+t=900000 VALID=1 | 8 8 8 8 8 8 8 8
+t=910000 VALID=1 | 8 8 8 8 8 8 8 8
+t=920000 VALID=1 | 8 8 8 8 8 8 8 8
+t=930000 VALID=1 | 8 8 8 8 8 8 8 8
+t=940000 VALID=1 | 8 8 8 8 8 8 8 8
+t=950000 VALID=1 | 8 8 8 8 8 8 8 8
+t=960000 VALID=1 | 8 8 8 8 8 8 8 8
+t=970000 VALID=1 | 8 8 8 8 8 8 8 8
+t=980000 VALID=1 | 8 8 8 8 8 8 8 8
+t=990000 VALID=1 | 8 8 8 8 8 8 8 8
+t=1000000 VALID=1 | 8 8 8 8 8 8 8 8

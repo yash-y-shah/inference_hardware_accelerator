@@ -1,4 +1,4 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Yash/KGP/hardware_project/vivado_ws/rtl/im2col.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module im2col
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Yash/KGP/hardware_project/vivado_ws/tb/tb_im2col.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tb_im2col
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Yash/KGP/hardware_project/vivado_ws/rtl/systolic_array_core.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module systolic_array_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Yash/KGP/hardware_project/vivado_ws/tb/tb_systolic_array_core.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_systolic_array_core

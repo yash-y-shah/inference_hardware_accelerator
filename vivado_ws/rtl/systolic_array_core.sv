@@ -1,17 +1,3 @@
-// =============================================================================
-// Module: systolic_array_core (Weight-Stationary Systolic Array)
-// Project: Neural Network Inference Accelerator
-// Target: AMD Zynq-7000 (PYNQ-Z1)
-//
-// PURPOSE
-// -------
-// A GRID_DIM × GRID_DIM grid of Processing Elements that computes:
-//
-//   result[col] = SUM over all rows of (ip_act[row] × weight[row][col])
-//
-// This is ONE output of a matrix-vector multiply. Run this for K time steps
-// (where K = kernel_size² = 9) to compute one full convolution output.
-//
 
 module systolic_array_core #(
     parameter IP_WIDTH = 8,    // activation bit-width = INT8
@@ -21,17 +7,17 @@ module systolic_array_core #(
 )(
     input clk,
     input rst,
-    input en,                  // enable
-    input weight_load,         // load weight_matrix (1 cycle)
-    input signed [WT_WIDTH-1:0] weight_matrix [GRID_DIM-1:0][GRID_DIM-1:0],
-    input signed [IP_WIDTH-1:0] ip_act [GRID_DIM-1:0],
-    output signed [PS_WIDTH-1:0] result [GRID_DIM-1:0],
-    output reg result_valid    // results valid at the output
+    input en,
+    input weight_load,
+    input  signed [WT_WIDTH-1:0] weight_matrix [GRID_DIM-1:0][GRID_DIM-1:0],
+    input  signed [IP_WIDTH-1:0] ip_act        [GRID_DIM-1:0],
+    output signed [PS_WIDTH-1:0] result        [GRID_DIM-1:0],
+    output reg                   result_valid
 );
-localparam NUM_PES = GRID_DIM * GRID_DIM;
-
-// pipeline latency from first valid input to first valid output.
+// Pipeline latency: (GRID_DIM-1) column register stages + (GRID_DIM-1) row register stages
 localparam LATENCY = 2 * (GRID_DIM - 1);
+// NUM_PES would be GRID_DIM*GRID_DIM but is not used internally — kept for documentation only.
+// localparam NUM_PES = GRID_DIM * GRID_DIM;
 // weight loading - 2D bus - entire weight matrix in ONE clock cycle
 
 // driven by PE[row][col].ip_fwd, read by PE[row][col+1].ip_act (for col < GRID_DIM-1)
@@ -45,19 +31,19 @@ generate
     for (row = 0; row < GRID_DIM; row = row + 1) begin : row_gen
         for (col = 0; col < GRID_DIM; col = col + 1) begin : col_gen
             processing_element_ws #(
-                .IP_WIDTH (IP_WIDTH),
-                .WT_WIDTH (WT_WIDTH),
-                .PS_WIDTH (PS_WIDTH)
-            ) pe_array (
-                .clk      (clk),
-                .rst      (rst),
-                .en       (en),
-                .load_wgt (weight_load),
-                .ip_wgt   (weight_matrix[row][col]), 
-                .ip_act   ((col == 0) ? ip_act[row] : act_wire[row][col-1]),
+                .IP_WIDTH  (IP_WIDTH),
+                .WT_WIDTH  (WT_WIDTH),
+                .PS_WIDTH  (PS_WIDTH)
+            ) u_pe (
+                .clk       (clk),
+                .rst       (rst),
+                .en        (en),
+                .load_wgt  (weight_load),
+                .ip_wgt    (weight_matrix[row][col]),
+                .ip_act    ((col == 0) ? ip_act[row] : act_wire[row][col-1]),
                 .ip_partsum((row == 0) ? {PS_WIDTH{1'b0}} : psum_wire[row-1][col]),
-                .ip_fwd    (act_wire[row][col]),    // forwarded activation to right PE
-                .op_partsum(psum_wire[row][col])    // accumulated psum to below PE
+                .ip_fwd    (act_wire[row][col]),
+                .op_partsum(psum_wire[row][col])
             );
         end
     end
@@ -73,10 +59,10 @@ endgenerate
 // but continuous assign on packed slices of unpacked arrays is not legal.
 // A generate loop with individual assign statements is the most portable approach.
 
-genvar op_col_idx;
+genvar i;
 generate
-    for (op_col_idx = 0; op_col_idx < GRID_DIM; op_col_idx = op_col_idx + 1) begin : result_assign
-        assign result[op_col_idx] = psum_wire[GRID_DIM-1][op_col_idx];
+    for (i = 0; i < GRID_DIM; i = i + 1) begin : result_assign
+        assign result[i] = psum_wire[GRID_DIM-1][i];
     end
 endgenerate
 

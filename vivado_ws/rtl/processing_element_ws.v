@@ -71,7 +71,7 @@ module processing_element_ws #(
 )(
     input                            clk,
     input                            rst,
-    input                            en, // when low, the PE holds its outputs
+    input                            en,        // when low, the PE holds its outputs
     input                            load_wgt,  // weight load strobe, 1-cycle pulse
     input signed [PS_WIDTH-1:0]      ip_partsum, // partial sum from above PE
     input signed [IP_WIDTH-1:0]      ip_act,     // activation from the left
@@ -97,13 +97,13 @@ always @(posedge clk) begin
         op_partsum <= {PS_WIDTH{1'b0}};
     end
     else begin
-        // load_wgt takes precedence over en, as we cannot compute when loading weights
+        // load_wgt takes precedence over en (cannot compute while loading weights)
         if (load_wgt) begin
-            wgt <= ip_wgt;
-            op_partsum <= {PS_WIDTH{1'b0}};
+            wgt        <= ip_wgt;
+            op_partsum <= {PS_WIDTH{1'b0}}; // clear pipeline on weight reload
         end
-        else if (en) begin // conpute mode
-            ip_fwd <= ip_act;
+        else if (en) begin // compute mode
+            ip_fwd     <= ip_act;
             op_partsum <= $signed(ip_partsum) + $signed(prod);
         end
     end
